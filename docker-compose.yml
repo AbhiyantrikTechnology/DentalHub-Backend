@@ -1,0 +1,57 @@
+version: '3'
+services:
+  db:
+    image: mariadb:latest
+    expose:
+      - "3306"
+    volumes:
+      - ./tmp/db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: 'abhiyantrik_db'
+      MYSQL_USER: 'abhiyantrik'
+      MYSQL_PASSWORD: 'abhiyantrik123'
+      MYSQL_ROOT_PASSWORD: 'abhiyantrik123'
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+
+  redis:
+    restart: "always"
+    image: redis:latest
+    expose:
+      - "6379"
+
+  frontend:
+    build:
+      context: ./
+      dockerfile: docker/frontend/frontend.Dockerfile
+    volumes:
+      - ./static/static:/usr/share/nginx/html/static
+      - ./media:/usr/share/nginx/html/media
+      - ./docs/_build/html:/usr/share/nginx/html/docs
+      - ./vue:/usr/share/nginx/html
+    restart: "always"
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+  backend:
+    build:
+      context: ./
+      dockerfile: docker/backend/backend.Dockerfile
+    restart: "always"
+    ports:
+      - "8081:8081"
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+      - redis
+    environment:
+      SECRET_KEY: 'tg7703_ddewirye6t0d^mam7-=42&!k&wv5dhi$$(35kouzi3ks'
+      DEBUG: 'True'
+      DATABASE_ENGINE: django.db.backends.mysql
+      DATABASE_HOST: db
+      DATABASE_NAME: abhiyantrik_db
+      DATABASE_USER: abhiyantrik
+      DATABASE_PASSWORD: abhiyantrik123
+      DATABASE_PORT: 3306
+

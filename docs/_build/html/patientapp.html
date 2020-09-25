@@ -1,0 +1,234 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>PatientsAction &#8212; Dental Hub 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Encounterapp" href="encounterapp.html" />
+    <link rel="prev" title="UserAction" href="userapp.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="patientsaction">
+<h1>PatientsAction<a class="headerlink" href="#patientsaction" title="Permalink to this headline">¶</a></h1>
+<p>1. <strong>METHOD:</strong>
+1. <strong>URL:</strong> <a class="reference external" href="api/v1/patients">list a patient</a></p>
+<p>GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">patients</span>
+
+<span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="nb">list</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">patients</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>2. <strong>METHOD:</strong>
+1. <strong>URL:</strong> <a class="reference external" href="api/v1/patients/geography_id">list a patient with geography_id</a></p>
+<p>GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">patients</span><span class="o">/&lt;</span><span class="n">geography_id</span>
+
+<span class="o">-</span> <span class="n">geography_id</span> <span class="n">must</span> <span class="n">be</span> <span class="k">as</span> <span class="n">a</span> <span class="n">parameter</span>
+
+<span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="nb">list</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">patients</span> <span class="n">of</span> <span class="n">the</span> <span class="n">required</span> <span class="n">geography</span> <span class="n">area</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>3. <strong>METHOD:</strong>
+1. <strong>URL:</strong> <a class="reference external" href="api/v1/patients">create or register a patient</a></p>
+<p>POST:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">patients</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">This method is used to register a patients:</p>
+<blockquote>
+<div><p><strong>Body_Content</strong></p>
+</div></blockquote>
+</li>
+<li><p class="first">id : string()</p>
+</li>
+<li><p class="first">geography_id: string(required)</p>
+</li>
+<li><p class="first">activityarea_id : string(required)</p>
+</li>
+<li><p class="first">first_name: string(required)</p>
+</li>
+<li><p class="first">last_name: string(required)</p>
+</li>
+<li><p class="first">middle_name: string()</p>
+</li>
+<li><p class="first">gender: choicefield(required)
+male, female. other</p>
+</li>
+<li><p class="first">dob(date of birth): DateTimeField(required)</p>
+</li>
+<li><p class="first">phone(phone number):CharField(required)</p>
+</li>
+<li><p class="first">author : ForeignRelationship()</p>
+</li>
+<li><p class="first">date : autofield()</p>
+</li>
+<li><p class="first">latitude: DecimalField(required)</p>
+</li>
+<li><p class="first">longitude: DecimalField(required)</p>
+</li>
+<li><p class="first">ward_id : foreignkey(required)</p>
+</li>
+<li><p class="first">municipality_id: foreignkey(required)</p>
+</li>
+<li><p class="first">district_id: foreignkey(required)</p>
+</li>
+<li><p class="first">education: CharField(required)</p>
+</li>
+<li><p class="first">created_at: DateField(required)</p>
+</li>
+<li><p class="first">author : Foreigne Key(User)</p>
+</li>
+<li><p class="first">recall_time : TimeField(optional)</p>
+</li>
+<li><p class="first">recall_geography : ForeigneKey(optional)</p>
+</li>
+</ul>
+<p>4. <strong>PUT:</strong>
+1. <strong>URL:</strong> <a class="reference external" href="api/v1/patient/patient_id">update a patient</a></p>
+<p>PUT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">patient</span><span class="o">/&lt;</span><span class="n">patient_id</span><span class="o">&gt;</span>
+
+<span class="o">-</span> <span class="n">patient_id</span> <span class="n">must</span> <span class="n">be</span> <span class="k">as</span> <span class="n">a</span> <span class="n">parameter</span>
+
+<span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">update</span> <span class="n">a</span> <span class="n">patients</span><span class="p">:</span>
+
+  <span class="o">**</span><span class="n">Body_Content</span><span class="o">**</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>id : string()</li>
+<li>geography_id: string(required)</li>
+<li>activityarea_id : string(required)</li>
+<li>first_name: string(required)</li>
+<li>last_name: string(required)</li>
+<li>middle_name: string()</li>
+<li>gender: choicefield(required)
+male, female. other</li>
+<li>dob(date of birth): DateTimeField(required)</li>
+<li>phone(phone number):CharField(required)</li>
+<li>author : ForeignRelationship()</li>
+<li>date : autofield()</li>
+<li>latitude: DecimalField(required)</li>
+<li>longitude: DecimalField(required)</li>
+<li>ward_id : foreignkey(required)</li>
+<li>municipality_id: foreignkey(required)</li>
+<li>district_id: foreignkey(required)</li>
+<li>education: CharField(required)</li>
+<li>updated_by: DateField(required)</li>
+<li>updated_by : Foreigne Key(User)</li>
+<li>recall_time : TimeField(optional)</li>
+<li>recall_geography : ForeigneKey(optional)</li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Dental Hub</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="userapp.html">UserAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#forgetpasswordaction">ForgetPasswordAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#resetpasswordaction">ResetPasswordAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#profileaction">ProfileAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#updateprofileaction">UpdateProfileAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#changepasswordaction">ChangePasswordAction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PatientsAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encounterapp.html">Encounterapp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addressapp.html">AddressAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addressapp.html#geographyaction">GeographyAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addressapp.html#activitieaction">ActivitieAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addressapp.html#activitieareaaction">ActivitieAreaAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addressapp.html#recallaction">RecallAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifydeleteapp.html">Mark For deletion</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="userapp.html" title="previous chapter">UserAction</a></li>
+      <li>Next: <a href="encounterapp.html" title="next chapter">Encounterapp</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Abhiyantrik Technology.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.9</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/patientapp.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

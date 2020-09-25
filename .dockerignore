@@ -1,0 +1,4 @@
+/media
+/tmp
+*.pyc
+.git

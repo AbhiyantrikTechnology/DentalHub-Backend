@@ -1,0 +1,440 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>EncounterApp &#8212; Dental Hub 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="AddressAction" href="addressapp.html" />
+    <link rel="prev" title="PatientsAction" href="patientapp.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="encounterapp">
+<h1>EncounterApp<a class="headerlink" href="#encounterapp" title="Permalink to this headline">¶</a></h1>
+<p>1. <strong>METHOD:</strong>
+1. <strong>URL:</strong> <a class="reference external" href="api/v1/patients/patient_id/encounters">List a encounter of a patients</a></p>
+<p>GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">patients</span><span class="o">/&lt;</span><span class="n">patient_id</span><span class="o">&gt;/</span><span class="n">encounters</span>
+
+<span class="o">-</span> <span class="n">patient_id</span> <span class="n">should</span> <span class="n">be</span> <span class="n">a</span> <span class="n">parameter</span>
+
+<span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="nb">list</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">encounter</span> <span class="n">patient</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>2. <strong>METHOD:</strong>
+1. <strong>URL:</strong> <a class="reference external" href="api/v1/patients/patient_id/encounters">create a encounter for  a patients</a></p>
+<p>POST:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">patients</span><span class="o">/</span><span class="n">patient_id</span><span class="o">/</span><span class="n">encounters</span>
+
+ <span class="o">-</span> <span class="n">patient_id</span> <span class="n">should</span> <span class="n">be</span> <span class="n">a</span> <span class="n">parameter</span>
+
+ <span class="o">-</span> <span class="n">This</span> <span class="n">Method</span> <span class="ow">is</span> <span class="n">used</span> <span class="k">for</span> <span class="n">adding</span> <span class="n">a</span> <span class="n">encounter</span> <span class="k">for</span> <span class="n">patient</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><strong>Body_Content</strong></p>
+<ul class="simple">
+<li>encounter_type: ChoiceField(required)
+choice field are ({screeing:Checkup/Screeing,pain:Relief of pain,treatment plan: Continuation of treatment plan,other:Other Problem})</li>
+<li>other_detail: String()</li>
+<li>created_at: DateField(required)</li>
+</ul>
+<p>3. <strong>Put:</strong>
+1. <strong>URL:</strong> <a class="reference external" href="api/v1/patients/patient_id/encounters/encounter_id">update a encounter for  a patients</a></p>
+<p>PUT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">patients</span><span class="o">/</span><span class="n">patient_id</span><span class="o">/</span><span class="n">encounters</span><span class="o">/</span><span class="n">encounter_id</span>
+
+<span class="o">-</span> <span class="n">patient_id</span><span class="p">:</span> <span class="n">CharField</span> <span class="p">(</span><span class="n">patient_id</span> <span class="k">as</span> <span class="n">a</span> <span class="n">parameter</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">encounter_id</span><span class="p">:</span><span class="n">CharField</span> <span class="p">(</span><span class="n">encounter_id</span> <span class="n">ad</span> <span class="n">a</span> <span class="n">parameter</span><span class="p">)</span>
+
+<span class="o">-</span> <span class="n">This</span> <span class="n">Method</span> <span class="ow">is</span> <span class="n">used</span> <span class="k">for</span> <span class="n">updating</span> <span class="n">a</span> <span class="n">encounter</span> <span class="k">for</span> <span class="n">patient</span>
+<span class="o">-</span> <span class="n">If</span> <span class="n">encounter</span> <span class="n">created</span> <span class="n">time</span> <span class="ow">is</span> <span class="n">more</span> <span class="n">than</span> <span class="mi">24</span> <span class="n">hours</span><span class="p">,</span> <span class="n">user</span> <span class="n">cannot</span> <span class="n">update</span> <span class="n">encounter</span> <span class="n">directly</span><span class="p">,</span> <span class="k">for</span> <span class="n">this</span> <span class="n">user</span> <span class="n">has</span> <span class="n">to</span> <span class="n">send</span> <span class="n">modify</span> <span class="n">request</span>
+<span class="o">-</span> <span class="n">After</span> <span class="n">admin</span> <span class="n">approve</span> <span class="n">modify</span> <span class="n">request</span> <span class="n">then</span> <span class="n">user</span> <span class="n">has</span> <span class="n">to</span> <span class="n">modify</span> <span class="n">encounter</span> <span class="n">before</span> <span class="mi">7</span> <span class="n">days</span> <span class="n">of</span> <span class="n">approval</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>encounter_type: ChoiceField(required)
+choice field are ({screeing:Checkup/Screeing,pain:Relief of pain,treatment plan: Continuation of treatment plan,other:Other Problem})</li>
+<li>other_detail: String()</li>
+<li>updated_at: DateField(required)</li>
+<li>updated_by: Foreigne Key(User)</li>
+</ul>
+<div class="section" id="historyaction">
+<h2>HistoryAction<a class="headerlink" href="#historyaction" title="Permalink to this headline">¶</a></h2>
+<p>1. <strong>URL:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span> <span class="ow">and</span> <span class="n">Post</span> <span class="p">:</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">encounter</span><span class="o">/&lt;</span><span class="n">encounter_id</span><span class="o">&gt;/</span><span class="n">history</span>
+<span class="n">Put</span><span class="p">:</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">encounter</span><span class="o">/&lt;</span><span class="n">encounter_id</span><span class="o">&gt;/</span><span class="n">history</span><span class="o">/</span><span class="n">update</span>
+
+<span class="o">-</span> <span class="n">encounter_id</span><span class="p">:</span> <span class="n">CharField</span><span class="p">(</span><span class="k">as</span> <span class="n">a</span> <span class="n">parameter</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>2. <strong>METHOD:</strong>
+GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="nb">list</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">encounter</span> <span class="n">history</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>3. <strong>METHOD:</strong>
+POST:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">add</span> <span class="n">a</span> <span class="n">encounter</span> <span class="n">of</span> <span class="n">history</span><span class="p">:</span>
+</pre></div>
+</div>
+<blockquote>
+<div><strong>Body_Content</strong></div></blockquote>
+<ul class="simple">
+<li>blood_disorder: BooleanField()</li>
+<li>diabetes: BooleanField()</li>
+<li>liver_problem: BooleanField()</li>
+<li>rheumatic_fever: BooleanField()</li>
+<li>epilepsy_or_seizures:BooleanField()</li>
+<li>hepatitis_b_or_c: BooleanField()</li>
+<li>hiv:BooleanField()</li>
+<li>no_allergies:BooleanField()</li>
+<li>allergies: String()</li>
+<li>no_underlying_medical_condition:BoolenField()</li>
+<li>not_taking_any_medications: BoolenField()</li>
+<li>other: CharField()</li>
+<li>no_medications:BooleanField()</li>
+<li>medication:CharField()</li>
+<li>no_medication:BooleanField()</li>
+<li>encounter_id : Foreigne Key(Encounter)required</li>
+<li>created_at: DateField(required)</li>
+</ul>
+<p>4. <strong>METHOD:</strong>
+PUT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">encounter</span> <span class="n">history</span><span class="p">:</span>
+
+  <span class="o">**</span><span class="n">Body_Content</span><span class="o">**</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>blood_disorder: BooleanField()</li>
+<li>diabetes: BooleanField()</li>
+<li>liver_problem: BooleanField()</li>
+<li>rheumatic_fever: BooleanField()</li>
+<li>epilepsy_or_seizures:BooleanField()</li>
+<li>hepatitis_b_or_c: BooleanField()</li>
+<li>hiv:BooleanField()</li>
+<li>no_allergies:BooleanField()</li>
+<li>allergies: String()</li>
+<li>no_underlying_medical_condition:BoolenField()</li>
+<li>not_taking_any_medications: BoolenField()</li>
+<li>other: CharField()</li>
+<li>no_medications:BooleanField()</li>
+<li>medication:CharField()</li>
+<li>no_medication:BooleanField()</li>
+<li>updated_at: DateField()</li>
+</ul>
+</div>
+<div class="section" id="referaction">
+<h2>ReferAction<a class="headerlink" href="#referaction" title="Permalink to this headline">¶</a></h2>
+<p>1. <strong>URL:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span> <span class="ow">and</span> <span class="n">Post</span> <span class="p">:</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">encounter</span><span class="o">/&lt;</span><span class="n">encounter_id</span><span class="o">&gt;</span><span class="n">refer</span>
+<span class="n">Put</span> <span class="p">:</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">encounter</span><span class="o">/&lt;</span><span class="n">encounter_id</span><span class="o">&gt;</span><span class="n">refer</span><span class="o">/</span><span class="n">update</span>
+
+<span class="o">-</span> <span class="n">encounter_id</span><span class="p">:</span> <span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="p">)</span> <span class="k">as</span> <span class="n">a</span> <span class="n">parameter</span>
+</pre></div>
+</div>
+<p>2. <strong>METHOD:</strong>
+GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="nb">list</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">encounter</span> <span class="n">refer</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>3. <strong>METHOD:</strong>
+POST:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">This</span> <span class="n">Method</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">add</span> <span class="n">a</span> <span class="n">refer</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><strong>Body_Content</strong></p>
+<ul class="simple">
+<li>no_referal: BooleanField()</li>
+<li>health_post: BooleanField()</li>
+<li>dentist: BooleanField()</li>
+<li>physician: BooleanField()</li>
+<li>hygienist: BooleanField()</li>
+<li>other: CharField()</li>
+<li>created_at: DateField(required)</li>
+<li>encounter_id : Foreigne Key(Encounter)required</li>
+</ul>
+<p>4. <strong>METHOD:</strong>
+PUT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">This</span> <span class="n">Method</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">update</span> <span class="n">a</span> <span class="n">refer</span> <span class="n">encounter</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><strong>Body_Content</strong></p>
+<ul class="simple">
+<li>no_referal: BooleanField()</li>
+<li>health_post: BooleanField()</li>
+<li>dentist: BooleanField()</li>
+<li>physician: BooleanField()</li>
+<li>hygienist: BooleanField()</li>
+<li>other: CharField()</li>
+<li>updated_at: DateField()</li>
+</ul>
+</div>
+<div class="section" id="screeingaction">
+<h2>ScreeingAction<a class="headerlink" href="#screeingaction" title="Permalink to this headline">¶</a></h2>
+<p>1. <strong>URL:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span> <span class="ow">and</span> <span class="n">Post</span> <span class="p">:</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">encounter</span><span class="o">/&lt;</span><span class="n">encounter_id</span><span class="o">&gt;/</span><span class="n">screening</span>
+<span class="n">Put</span> <span class="p">:</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">encounter</span><span class="o">/&lt;</span><span class="n">encounter_id</span><span class="o">&gt;/</span><span class="n">screening</span><span class="o">/</span><span class="n">update</span>
+
+<span class="o">-</span> <span class="n">encounter_id</span><span class="p">:</span> <span class="n">CharField</span><span class="p">(</span><span class="k">as</span> <span class="n">a</span> <span class="n">parameter</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>2. <strong>METHOD:</strong>
+GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="nb">list</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">encounter</span> <span class="n">screeing</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>3. <strong>METHOD:</strong>
+POST:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">This</span> <span class="n">Method</span> <span class="ow">is</span> <span class="n">used</span> <span class="k">for</span> <span class="n">add</span> <span class="n">a</span> <span class="n">screeing</span> <span class="n">encounter</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><strong>Body_Content</strong></p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>carries_risk: ChoiceField(required)</dt>
+<dd>choice field are (Low,High,Medium)</dd>
+</dl>
+</li>
+<li>decayed_primary_teeth: IntegerField(required)</li>
+<li>decayed_permanent_teeth: IntegerField(required)</li>
+<li>cavity_permanent_posterior_teeth: BooleanField()</li>
+<li>cavity_permanent_anterior_teeth: BooleanField()</li>
+<li>need_sealant: BooleanField()</li>
+<li>reversible_pulpitis: Bool:eanField()</li>
+<li>need_art_filling: BooleanField()</li>
+<li>need_extraction: BooleanField()</li>
+<li>need_sdf: BooleanField()</li>
+<li>high_blood_pressure:BooleanField()</li>
+<li>low_blood_pressure:BooleanField()</li>
+<li>thyroid_disorder:BooleanField()</li>
+<li>created_at: DateField(required)</li>
+<li>encounter_id : Foreigne Key(Encounter)required</li>
+<li>active_infection:BooleanField()</li>
+</ul>
+<p>4. <strong>METHOD:</strong>
+PUT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">Body_Content</span><span class="o">**</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">carries_risk: ChoiceField(required)
+choice field are (Low,High,Medium)</p>
+</li>
+<li><p class="first">decayed_primary_teeth: IntegerField(required)</p>
+</li>
+<li><p class="first">decayed_permanent_teeth: IntegerField(required)</p>
+</li>
+<li><p class="first">cavity_permanent_posterior_teeth: BooleanField()</p>
+</li>
+<li><p class="first">cavity_permanent_anterior_teeth: BooleanField()</p>
+</li>
+<li><p class="first">need_sealant: BooleanField()</p>
+</li>
+<li><p class="first">reversible_pulpitis: Bool:eanField()</p>
+</li>
+<li><p class="first">need_art_filling: BooleanField()</p>
+</li>
+<li><p class="first">need_extraction: BooleanField()</p>
+</li>
+<li><p class="first">need_sdf: BooleanField()</p>
+</li>
+<li><p class="first">high_blood_pressure:BooleanField()</p>
+</li>
+<li><p class="first">low_blood_pressure:BooleanField()</p>
+</li>
+<li><p class="first">thyroid_disorder:BooleanField()</p>
+</li>
+<li><p class="first">updated_at: DateField()</p>
+</li>
+<li><p class="first">active_infection:BooleanField()</p>
+<blockquote>
+<div><ul class="simple">
+<li>This method is used to update a screeing encounter:</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="treatmentaction">
+<h2>TreatmentAction<a class="headerlink" href="#treatmentaction" title="Permalink to this headline">¶</a></h2>
+<p>1. <strong>URL:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span> <span class="ow">and</span> <span class="n">Post</span> <span class="p">:</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">encounter</span><span class="o">/&lt;</span><span class="n">encounter_id</span><span class="o">&gt;/</span><span class="n">treatment</span>
+<span class="n">Put</span> <span class="p">:</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">encounter</span><span class="o">/&lt;</span><span class="n">encounter_id</span><span class="o">&gt;/</span><span class="n">treatment</span><span class="o">/</span><span class="n">update</span>
+
+<span class="o">-</span> <span class="n">encounter_id</span><span class="p">:</span> <span class="n">CharField</span><span class="p">(</span><span class="k">as</span> <span class="n">a</span> <span class="n">parameter</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>2. <strong>METHOD:</strong>
+GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="nb">list</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">encounter</span> <span class="n">treatment</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>3. <strong>METHOD:</strong>
+POST:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">This</span> <span class="n">Method</span> <span class="ow">is</span> <span class="n">used</span> <span class="k">for</span> <span class="n">add</span> <span class="n">a</span> <span class="n">treatment</span> <span class="n">encounter</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><strong>Body_Content</strong></p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>teeth: ChoiceField()</dt>
+<dd>choice field are (SMART,SDF,SEAL,ART,’EXO’,’UNTR’,’NONE’,’SMART’)</dd>
+</dl>
+</li>
+<li>tooth should be from 11 to 18 , 21 to 28 ,31 to 38, 41 to 48</li>
+<li><dl class="first docutils">
+<dt>primary_teeth: ChoiceField()</dt>
+<dd>choice field are (SMART,SDF,SEAL,ART,’EXO’,’UNTR’,’NONE’)</dd>
+</dl>
+</li>
+<li>primary_teeth should be from 51 to 55, 61 to 65 , 71 to 75 and 81 to 85</li>
+<li>fv_applied: BooleanField()</li>
+<li>treatment_plan_complete: BooleanField()</li>
+<li>note: TextField()</li>
+<li>sdf_whole_mouth:BoolenField()</li>
+<li>created_at: DateField(required)</li>
+<li>encounter_id : Foreigne Key(Encounter)required</li>
+</ul>
+<p>4. <strong>METHOD:</strong>
+PUT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">update</span> <span class="n">a</span> <span class="n">screeing</span> <span class="n">encounter</span><span class="p">:</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>teeth: ChoiceField()</dt>
+<dd>choice field are (SMART,SDF,SEAL,ART,’EXO’,’UNTR’,’NONE’,’SMART’)</dd>
+</dl>
+</li>
+<li>tooth should be from 11 to 18 , 21 to 28 ,31 to 38, 41 to 48</li>
+<li><dl class="first docutils">
+<dt>primary_teeth: ChoiceField()</dt>
+<dd>choice field are (SMART,SDF,SEAL,ART,’EXO’,’UNTR’,’NONE’)</dd>
+</dl>
+</li>
+<li>primary_teeth should be from 51 to 55, 61 to 65 , 71 to 75 and 81 to 85</li>
+<li>fv_applied: BooleanField()</li>
+<li>treatment_plan_complete: BooleanField()</li>
+<li>note: TextField()</li>
+<li>sdf_whole_mouth:BoolenField()</li>
+<li>updated_at: DateField()</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Dental Hub</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="userapp.html">UserAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#forgetpasswordaction">ForgetPasswordAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#resetpasswordaction">ResetPasswordAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#profileaction">ProfileAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#updateprofileaction">UpdateProfileAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#changepasswordaction">ChangePasswordAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patientapp.html">PatientsAction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">EncounterApp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#historyaction">HistoryAction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#referaction">ReferAction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#screeingaction">ScreeingAction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#treatmentaction">TreatmentAction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="addressapp.html">AddressAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addressapp.html#geographyaction">GeographyAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addressapp.html#activitieaction">ActivitieAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addressapp.html#activitieareaaction">ActivitieAreaAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addressapp.html#recallaction">RecallAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifydeleteapp.html">Mark For deletion</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="patientapp.html" title="previous chapter">PatientsAction</a></li>
+      <li>Next: <a href="addressapp.html" title="next chapter">AddressAction</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Abhiyantrik Technology.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.9</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/encounterapp.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

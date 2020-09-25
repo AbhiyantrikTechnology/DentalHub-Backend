@@ -1,0 +1,226 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>AddressAction &#8212; Dental Hub 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mark For deletion" href="modifydeleteapp.html" />
+    <link rel="prev" title="Encounterapp" href="encounterapp.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="addressaction">
+<h1>AddressAction<a class="headerlink" href="#addressaction" title="Permalink to this headline">¶</a></h1>
+<p>1. <strong>METHOD:</strong>
+<strong>URL:</strong> <a class="reference external" href="api/v1/addresses">list a address</a></p>
+<p>GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">addresses</span>
+
+<span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="nb">list</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">address</span> <span class="n">related</span> <span class="n">to</span> <span class="n">district</span> <span class="p">,</span><span class="n">municipality</span> <span class="ow">and</span> <span class="n">ward</span> <span class="n">of</span> <span class="n">Nepal</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="geographyaction">
+<h1>GeographyAction<a class="headerlink" href="#geographyaction" title="Permalink to this headline">¶</a></h1>
+<p>1. <strong>METHOD:</strong>
+<strong>URL:</strong> <a class="reference external" href="api/v1/geography">list a geography</a></p>
+<p>GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">geography</span>
+
+<span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="nb">list</span> <span class="nb">all</span> <span class="n">geography</span> <span class="n">data</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>2. <strong>METHOD:</strong>
+<em>URL:*</em> <a class="reference external" href="api/v1/geography">create a geography</a></p>
+<p>POST:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">geography</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>This Method is used for adding a Geography:</li>
+</ul>
+<p><strong>Body_Content</strong></p>
+<ul class="simple">
+<li>district: ChoiceField(required)</li>
+<li>municipality: ChoiceField(required)</li>
+<li>ward: PositiveIntegerField()</li>
+</ul>
+<p>4. <strong>Put:</strong>
+<em>URL:*</em> <a class="reference external" href="api/v1/geography/geography_id">update a geography</a></p>
+<p>POST:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">geography</span><span class="o">/&lt;</span><span class="n">geography_id</span><span class="o">&gt;</span>
+
+<span class="o">-</span> <span class="n">This</span> <span class="n">Method</span> <span class="ow">is</span> <span class="n">used</span> <span class="k">for</span> <span class="n">updating</span> <span class="n">a</span> <span class="n">geography</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="activitieaction">
+<h1>ActivitieAction<a class="headerlink" href="#activitieaction" title="Permalink to this headline">¶</a></h1>
+<p>1. <strong>METHOD:</strong>
+<em>URL:*</em> <a class="reference external" href="api/v1/events">list a activities</a></p>
+<p>GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">events</span>
+
+<span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="nb">list</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">activitie</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="activitieareaaction">
+<h1>ActivitieAreaAction<a class="headerlink" href="#activitieareaaction" title="Permalink to this headline">¶</a></h1>
+<p>1. <strong>METHOD:</strong>
+<em>URL:*</em> <a class="reference external" href="api/v1/activities">list a activitiesarea</a></p>
+<p>GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">activities</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>This method list all the activitiearea:</li>
+</ul>
+<p>2. <strong>METHOD:</strong>
+<em>URL:*</em> <a class="reference external" href="api/v1/activities">create a activitiesarea</a></p>
+<p>POST:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">activities</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>This Method is used for adding a activitiearea:</li>
+</ul>
+<p><strong>Body_Content</strong></p>
+<ul class="simple">
+<li>activity id : ForeignKey(required) ie Activity id</li>
+<li>name: String()</li>
+</ul>
+<p>3. <strong>Put:</strong>
+<em>URL:*</em> <a class="reference external" href="api/v1/activities/activities_id">update a activitiesarea</a></p>
+<p>POST:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">activities</span><span class="o">/&lt;</span><span class="n">activities_id</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>activities_id: CharField (activities_id as a parameter)</li>
+<li>This Method is used for updating a activities:</li>
+</ul>
+</div>
+<div class="section" id="recallaction">
+<h1>RecallAction<a class="headerlink" href="#recallaction" title="Permalink to this headline">¶</a></h1>
+<p>1. <strong>METHOD:</strong>
+<em>URL:*</em> <a class="reference external" href="api/v1/recalls/geography_id">update a activitiesarea</a></p>
+<p>GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">recalls</span><span class="o">/&lt;</span><span class="n">geography_id</span><span class="o">&gt;</span>
+
+<span class="o">-</span> <span class="n">This</span> <span class="n">method</span> <span class="nb">list</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">recall</span> <span class="k">for</span> <span class="n">the</span> <span class="n">patients</span><span class="p">:</span>
+
+<span class="o">-</span> <span class="n">this</span> <span class="n">screen</span> <span class="n">should</span> <span class="n">be</span> <span class="n">show</span> <span class="n">only</span> <span class="n">when</span> <span class="n">health</span> <span class="n">post</span> <span class="ow">is</span> <span class="n">click</span> <span class="ow">in</span> <span class="n">acticities</span> <span class="n">section</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Dental Hub</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="userapp.html">View all Appser and Register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#forgetpassword">ForgetPassword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#resetpassword">ResetPassword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#profile">Profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#updateappuser">UpdateAppuser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp.html#changepassword">ChangePassword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patientapp.html">View all Patients and Register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encounterapp.html">Encounterapp</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AddressAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#geographyaction">GeographyAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#activitieaction">ActivitieAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#activitieareaaction">ActivitieAreaAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#recallaction">RecallAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifydeleteapp.html">Mark For deletion</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="encounterapp.html" title="previous chapter">Encounterapp</a></li>
+      <li>Next: <a href="modifydeleteapp.html" title="next chapter">Mark For deletion</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Abhiyantrik Technology.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.9</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/addressapp.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
